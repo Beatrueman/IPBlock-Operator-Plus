@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ipblock-operator-config
+data:
+  gatewayHost: {{ .Values.config.gatewayHost | quote }}
+  engine: {{ .Values.config.engine | quote }}
+  whitelist: |
+{{ .Values.config.whitelist | quote | indent 4 }}
+  notifyType: {{ .Values.config.notifyType | quote }}
+  notifyWebhookURL: {{ .Values.config.notifyWebhookURL | quote }}
+  notifyTemplate_ban: {{ .Values.config.notifyTemplate.ban | quote }}
+  notifyTemplate_resolve: {{ .Values.config.notifyTemplate.resolve | quote }}
+  notifyTemplate_common: {{ .Values.config.notifyTemplate.common | quote }}
+  trigger: |
+{{ toYaml .Values.config.triggers | indent 4 }}
+
