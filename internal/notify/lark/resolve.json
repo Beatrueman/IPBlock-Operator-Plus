@@ -1,0 +1,91 @@
+{
+  "schema": "2.0",
+  "config": {
+    "update_multi": true,
+    "locales": [
+      "en_us"
+    ],
+    "style": {
+      "text_size": {
+        "normal_v2": {
+          "default": "normal",
+          "pc": "normal",
+          "mobile": "heading"
+        }
+      }
+    }
+  },
+  "body": {
+    "direction": "vertical",
+    "padding": "12px 12px 12px 12px",
+    "elements": [
+      {
+        "tag": "column_set",
+        "horizontal_spacing": "8px",
+        "horizontal_align": "left",
+        "columns": [
+          {
+            "tag": "column",
+            "width": "weighted",
+            "elements": [
+              {
+                "tag": "markdown",
+                "content": "<font color=\"grey\">解封时间</font>\n${alarm_time}",
+                "i18n_content": {
+                  "en_us": "<font color=\"grey\">Alert details</font>\nMobile client crash rate at 5%"
+                },
+                "text_align": "left",
+                "text_size": "normal_v2",
+                "margin": "0px 0px 0px 0px",
+                "icon": {
+                  "tag": "standard_icon",
+                  "token": "time_filled",
+                  "color": "grey"
+                }
+              }
+            ],
+            "vertical_spacing": "8px",
+            "horizontal_align": "left",
+            "vertical_align": "top",
+            "weight": 1
+          }
+        ],
+        "margin": "0px 0px 0px 0px"
+      },
+      {
+        "tag": "markdown",
+        "content": "<font color=\"grey\">解封信息</font>\n**${ip}**已解封",
+        "i18n_content": {
+          "en_us": "<font color=\"grey\">Diagnostic info</font>\nService request volume exceeds rate limit"
+        },
+        "text_align": "left",
+        "text_size": "normal_v2",
+        "margin": "0px 0px 0px 0px",
+        "icon": {
+          "tag": "standard_icon",
+          "token": "bell_filled",
+          "color": "grey"
+        }
+      }
+    ]
+  },
+  "header": {
+    "title": {
+      "tag": "plain_text",
+      "content": "[已缓解] 恶意IP已解封",
+      "i18n_content": {
+        "en_us": "[Resolved] Alert: Process Error - Please Address Promptly"
+      }
+    },
+    "subtitle": {
+      "tag": "plain_text",
+      "content": ""
+    },
+    "template": "green",
+    "icon": {
+      "tag": "standard_icon",
+      "token": "yes_filled"
+    },
+    "padding": "12px 12px 12px 12px"
+  }
+}

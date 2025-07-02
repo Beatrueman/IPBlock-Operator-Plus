@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- ops_v1_ipblock.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples

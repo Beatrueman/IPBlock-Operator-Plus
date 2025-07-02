@@ -1,0 +1,65 @@
+{
+  "schema": "2.0",
+  "config": {
+    "update_multi": true,
+    "style": {
+      "text_size": {
+        "normal_v2": {
+          "default": "normal",
+          "pc": "normal",
+          "mobile": "heading"
+        }
+      }
+    }
+  },
+  "body": {
+    "direction": "horizontal",
+    "horizontal_spacing": "8px",
+    "vertical_spacing": "12px",
+    "horizontal_align": "left",
+    "vertical_align": "top",
+    "padding": "20px 20px 20px 20px",
+    "elements": [
+      {
+        "tag": "markdown",
+        "content": "<font color=\"grey\">解封时间</font>\n${alarm_time}",
+        "text_align": "left",
+        "text_size": "normal_v2",
+        "margin": "0px 0px 0px 0px",
+        "icon": {
+          "tag": "standard_icon",
+          "token": "time_filled",
+          "color": "grey"
+        }
+      },
+      {
+        "tag": "markdown",
+        "content": "<font color=\"grey\">错误信息</font>\n${msg}",
+        "text_align": "left",
+        "text_size": "normal_v2",
+        "margin": "0px 0px 0px 0px",
+        "icon": {
+          "tag": "standard_icon",
+          "token": "bell_filled",
+          "color": "grey"
+        }
+      }
+    ]
+  },
+  "header": {
+    "title": {
+      "tag": "plain_text",
+      "content": "错误推送"
+    },
+    "subtitle": {
+      "tag": "plain_text",
+      "content": ""
+    },
+    "template": "yellow",
+    "icon": {
+      "tag": "standard_icon",
+      "token": "yes_filled"
+    },
+    "padding": "12px 12px 12px 20px"
+  }
+}

@@ -1,0 +1,32 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - ops.yiiong.top
+  resources:
+  - ipblocks
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ops.yiiong.top
+  resources:
+  - ipblocks/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - ops.yiiong.top
+  resources:
+  - ipblocks/status
+  verbs:
+  - get
+  - patch
+  - update

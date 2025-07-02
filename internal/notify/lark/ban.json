@@ -1,0 +1,91 @@
+{
+  "schema": "2.0",
+  "config": {
+    "update_multi": true,
+    "locales": [
+      "en_us"
+    ],
+    "style": {
+      "text_size": {
+        "normal_v2": {
+          "default": "normal",
+          "pc": "normal",
+          "mobile": "heading"
+        }
+      }
+    }
+  },
+  "body": {
+    "direction": "vertical",
+    "padding": "12px 12px 12px 12px",
+    "elements": [
+      {
+        "tag": "markdown",
+        "content": "<font color=\"grey\">告警时间</font>\n${alarm_time}",
+        "i18n_content": {
+          "en_us": "<font color=\"grey\">Incident time</font>\n${alarm_time}"
+        },
+        "text_align": "left",
+        "text_size": "normal_v2",
+        "margin": "0px 0px 0px 0px",
+        "icon": {
+          "tag": "standard_icon",
+          "token": "time_filled",
+          "color": "grey"
+        }
+      },
+      {
+        "tag": "column_set",
+        "horizontal_spacing": "8px",
+        "horizontal_align": "left",
+        "columns": [
+          {
+            "tag": "column",
+            "width": "weighted",
+            "elements": [
+              {
+                "tag": "markdown",
+                "content": "<font color=\"grey\">告警内容</font>\n**${ip}**\n 发起请求过于频繁（1分钟内 **${count}** 次）",
+                "i18n_content": {
+                  "en_us": "<font color=\"grey\">Alert details</font>\nMobile client crash rate at 5%"
+                },
+                "text_align": "left",
+                "text_size": "normal_v2",
+                "margin": "0px 0px 0px 0px",
+                "icon": {
+                  "tag": "standard_icon",
+                  "token": "bell_filled",
+                  "color": "grey"
+                }
+              }
+            ],
+            "vertical_spacing": "8px",
+            "horizontal_align": "left",
+            "vertical_align": "top",
+            "weight": 1
+          }
+        ],
+        "margin": "0px 0px 0px 0px"
+      }
+    ]
+  },
+  "header": {
+    "title": {
+      "tag": "plain_text",
+      "content": "[已封禁] 疑似恶意IP",
+      "i18n_content": {
+        "en_us": "[Action Needed] Alert: Process Error - Please Address Promptly"
+      }
+    },
+    "subtitle": {
+      "tag": "plain_text",
+      "content": ""
+    },
+    "template": "red",
+    "icon": {
+      "tag": "standard_icon",
+      "token": "warning-hollow_filled"
+    },
+    "padding": "12px 12px 12px 12px"
+  }
+}
