@@ -1,9 +1,11 @@
 apiVersion: ops.yiiong.top/v1
 kind: IPBlock
 metadata:
-  labels:
-    app.kubernetes.io/name: ipblock-operator
-    app.kubernetes.io/managed-by: kustomize
   name: ipblock-sample
 spec:
-  # TODO(user): Add fields here
+  ip: "58.222.26.111"
+  reason: "模拟异常请求"
+  source: "manual"
+  by: "admin"
+  #trigger: true
+  unblock: true
