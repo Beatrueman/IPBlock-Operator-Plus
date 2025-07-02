@@ -4,29 +4,18 @@ kind: ClusterRole
 metadata:
   name: manager-role
 rules:
-- apiGroups:
-  - ops.yiiong.top
-  resources:
-  - ipblocks
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - ops.yiiong.top
-  resources:
-  - ipblocks/finalizers
-  verbs:
-  - update
-- apiGroups:
-  - ops.yiiong.top
-  resources:
-  - ipblocks/status
-  verbs:
-  - get
-  - patch
-  - update
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["create", "patch"]
+  - apiGroups: ["ops.yiiong.top"]
+    resources: ["ipblocks"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  - apiGroups: ["ops.yiiong.top"]
+    resources: ["ipblocks/status"]
+    verbs: ["get", "update", "patch"]
+  - apiGroups: ["ops.yiiong.top"]
+    resources: ["ipblocks/finalizers"]
+    verbs: ["update"]
