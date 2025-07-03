@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ipblock-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ipblock-operator
+  template:
+    metadata:
+      labels:
+        app: ipblock-operator
+    spec:
+      serviceAccountName: controller-manager
+      containers:
+        - name: operator
+          image: "beatrueman/ipblock-operator:2.0"
+          command:
+            - /manager
