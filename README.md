@@ -80,7 +80,7 @@ image:
 config:
   gatewayHost: ""                                    # 封禁后端 URL
   engine: ""                                         # 可选: xdp, iptables
-  whiteList: |										 # IP 白名单，支持在 ConfigMap中动态更新
+  whiteList: |										                   # IP 白名单，支持在 ConfigMap中动态更新
     1.2.3.4
   notifyType: ""                                     # 可选: lark
   notifyWebhookURL: ""                               # larkRobot Webhook
@@ -132,7 +132,7 @@ data:
   whitelist: |                                                # IP 白名单，支持在 ConfigMap中动态更新
     1.2.3.4
   notifyType: ""                                              # 可选: lark
-  notifyWebhookURL: ""                                                                    																									  # larkRobot Webhook
+  notifyWebhookURL: ""                                        # larkRobot Webhook
   notifyTemplate_ban: "/templates/lark/ban.json"              # larkRobot发送的card消息模板，请勿更改路径
   notifyTemplate_resolve: "/templates/lark/resolve.json"
   notifyTemplate_common: "/templates/lark/common.json"
@@ -144,7 +144,7 @@ data:
 make deploy
 ```
 
-##### **创建解决方案的实例**
+##### **创建样例**
 
 ```shell
 kubectl apply -k config/samples/
@@ -190,7 +190,7 @@ data:
   whitelist: |                                                # IP 白名单，支持在 ConfigMap中动态更新
     1.2.3.4
   notifyType: ""                                              # 可选: lark
-  notifyWebhookURL: ""                                                                    																									  # larkRobot Webhook
+  notifyWebhookURL: ""                                        # larkRobot Webhook
   notifyTemplate_ban: "/templates/lark/ban.json"              # larkRobot发送的card消息模板，请勿更改路径
   notifyTemplate_resolve: "/templates/lark/resolve.json"
   notifyTemplate_common: "/templates/lark/common.json"
@@ -208,7 +208,7 @@ image:
 config:
   gatewayHost: ""                                    # 封禁后端 URL
   engine: ""                                         # 可选: xdp, iptables
-  whiteList: |										 # IP 白名单，支持在 ConfigMap中动态更新
+  whiteList: |										                   # IP 白名单，支持在 ConfigMap中动态更新
     1.2.3.4
   notifyType: ""                                     # 可选: lark
   notifyWebhookURL: ""                               # larkRobot Webhook
@@ -275,7 +275,7 @@ metadata:
   name: test-ipblock
 spec:
   ip: "1.2.3.4"                       # 支持单IP / CIDR形式
-  reason: "模拟异常请求"                # 封禁原因
+  reason: "模拟异常请求"               # 封禁原因
   source: "manual"                    # 封禁源
   by: "admin"                         # 封禁者
   duration: "10m"                     # 封禁时长，当字段为空时，永久封禁  
