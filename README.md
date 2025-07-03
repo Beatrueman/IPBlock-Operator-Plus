@@ -1,135 +1,324 @@
-# ipblock-operator
-// TODO(user): Add simple overview of use/purpose
+# IPBlock-Operator-Plus
 
-## Description
-// TODO(user): An in-depth paragraph about your project and overview of use
+## 项目简介
 
-## Getting Started
+**IPBlock-Operator-Plus** 是一个基于 Kubernetes 的 Operator，构建了一个插件化、模块化的恶意 IP 封禁管理平台。该项目通过自定义资源（IPBlock CR）实现对恶意 IP 的声明式管理，支持手动和自动限流与封禁功能。其架构高度可扩展，便于集成多种触发器（Trigger）和通知机制（Notify），从而实现智能化的安全防护与运维管理。
 
-### Prerequisites
+## 项目架构
+
+**架构图**
+
+![IPBlock-Operator-Plus架构图](https://gitee.com/beatrueman/images/raw/master/20250702205541724.png)
+
+IPBlock-Operator-Plus 项目由以下五个核心模块组成：
+
+- **Controller（控制器）**
+
+​	负责核心业务逻辑的调度和协调，监听 Kubernetes 中 IPBlock 自定义资源的变化，维护和管理其生命周期。它是整个项目的核心部分，协调各个模块协同工作。
+
+- **Engine（封禁后端）**
+
+  负责封禁命令的实际执行。目前支持接入多种封禁机制（如XDP，iptables等）。通过插件化设计，便于快速扩展和替换不同的封禁技术方案。
+
+- **Notify（通知机制）**
+
+​	负责将封禁、解封等事件以多种方式通知给运维人员或其他系统。现支持飞书通知渠道，开发人员可通过自定义插件（实现接口）灵活添加更多通知方式。
+
+- **Trigger（触发器）**
+
+  事件触发中心，负责监听外部告警系统或业务事件（如 Grafana Alert等），并根据 Alert 策略触发相关封禁操作，自动创建 IPBlock CR，且支持自动解封。模块设计也方便开发人员接入多种告警来源。
+
+- **Policy（封禁策略）**
+
+  定义 IP 封禁的判定规则和执行策略。现支持白名单机制，保障了封禁行为的精准与合理。
+
+## 项目部署
+
+### 环境要求
+
 - go version v1.24.0+
-- docker version 17.03+.
 - kubectl version v1.11.3+.
 - Access to a Kubernetes v1.11.3+ cluster.
+- Python 3
+- Make
 
-### To Deploy on the cluster
-**Build and push your image to the location specified by `IMG`:**
+项目支持 **Helm** 和 **Make**两种部署方式
 
-```sh
-make docker-build docker-push IMG=<some-registry>/ipblock-operator:tag
+### 封禁后端部署
+
+封禁后端需要在监测目标机器上手动执行`python3 ../../ipblock-operator/internal/engine/control.py`
+
+最好将其制作成Service，保证后台持久运行。
+
+这里提供`get_ip.service`文件供参考。
+
+```shell
+[Unit] 
+Description=Get IP Service 
+After=network.target 
+[Service] 
+User=root 
+WorkingDirectory=/root/yiiong/get_ip  # control.py所在目录
+Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/bin/bash -c 'source /root/yiiong/get_ip/venv/bin/activate && exec python3 control.py' # 运行Python程序，注意文件路径
+Restart=always 
+[Install] 
+WantedBy=multi-user.target
 ```
 
-**NOTE:** This image ought to be published in the personal registry you specified.
-And it is required to have access to pull the image from the working environment.
-Make sure you have the proper permission to the registry if the above commands don’t work.
+### Helm
 
-**Install the CRDs into the cluster:**
+项目的`helm/`下存放了IPBlock-Operator-Plus的helm chart，在安装前，请先填写`values.yaml`
 
-```sh
+```yaml
+# values.yaml
+image:
+  repo: beatrueman/ipblock-operator
+  tag: "2.0"
+  pullPolicy: IfNotPresent
+
+config:
+  gatewayHost: ""                                    # 封禁后端 URL
+  engine: ""                                         # 可选: xdp, iptables
+  whiteList: |										 # IP 白名单，支持在 ConfigMap中动态更新
+    1.2.3.4
+  notifyType: ""                                     # 可选: lark
+  notifyWebhookURL: ""                               # larkRobot Webhook
+  notifyTemplate:                                    # larkRobot发送的card消息模板
+    ban: "/templates/lark/ban.json"
+    resolve: "templates/lark/resolve.json"
+    common: "/templates/lark/common.json"
+  triggers:                                          # 触发器，目前仅支持 Grafana
+    - name: grafana
+      addr: ":8090"
+      path: "/trigger/grafana"
+```
+
+填写完成后，安装helm chart即可
+
+注意需要将IPblock-Operator部署在`default`命名空间下。
+
+```
+helm install ipblock-operator .
+```
+
+### Make
+
+#### 在集群上部署
+
+##### 将 CRD 安装到集群中
+
+```shell
 make install
 ```
 
-**Deploy the Manager to the cluster with the image specified by `IMG`:**
+##### 将 Manager 部署到集群中
 
-```sh
-make deploy IMG=<some-registry>/ipblock-operator:tag
+填写`../../IPBlock-Operator-Plus/config/default`下的`configmap.yaml`
+
+```yaml
+# configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ipblock-operator-config
+data:
+  gatewayHost: ""                                             # 封禁后端 URL
+  engine: ""                                                  # 可选: xdp, iptables
+  trigger: |                                                  # 触发器，目前仅支持 Grafana
+    - name: grafana
+      addr: ":8090"
+      path: "/trigger/grafana"
+  whitelist: |                                                # IP 白名单，支持在 ConfigMap中动态更新
+    1.2.3.4
+  notifyType: ""                                              # 可选: lark
+  notifyWebhookURL: ""                                                                    																									  # larkRobot Webhook
+  notifyTemplate_ban: "/templates/lark/ban.json"              # larkRobot发送的card消息模板，请勿更改路径
+  notifyTemplate_resolve: "/templates/lark/resolve.json"
+  notifyTemplate_common: "/templates/lark/common.json"
 ```
 
-> **NOTE**: If you encounter RBAC errors, you may need to grant yourself cluster-admin
-privileges or be logged in as admin.
+> **注意：**如果您遇到 RBAC 错误，您可能需要授予自己 cluster-admin 权限或以 admin 身份登录。
 
-**Create instances of your solution**
-You can apply the samples (examples) from the config/sample:
+```shell
+make deploy
+```
 
-```sh
+##### **创建解决方案的实例**
+
+```shell
 kubectl apply -k config/samples/
 ```
 
->**NOTE**: Ensure that the samples has default values to test it out.
+#### 卸载
 
-### To Uninstall
-**Delete the instances (CRs) from the cluster:**
+##### 从集群中删除实例（CRs）
 
-```sh
-kubectl delete -k config/samples/
+```shell
+kubectl delete ipblock --all
 ```
 
-**Delete the APIs(CRDs) from the cluster:**
+##### 从集群中删除API（CRDs）
 
-```sh
+```shell
 make uninstall
 ```
 
-**UnDeploy the controller from the cluster:**
+##### 从集群中删除控制器
 
-```sh
+```shell
 make undeploy
 ```
 
-## Project Distribution
+## 配置项说明
 
-Following the options to release and provide this solution to the users.
+### ConfigMap
 
-### By providing a bundle with all YAML files
-
-1. Build the installer for the image built and published in the registry:
-
-```sh
-make build-installer IMG=<some-registry>/ipblock-operator:tag
+```yaml
+# configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ipblock-operator-config
+data:
+  gatewayHost: ""                                             # 封禁后端 URL
+  engine: ""                                                  # 可选: xdp, iptables
+  trigger: |                                                  # 触发器，目前仅支持 Grafana
+    - name: grafana
+      addr: ":8090"
+      path: "/trigger/grafana"
+  whitelist: |                                                # IP 白名单，支持在 ConfigMap中动态更新
+    1.2.3.4
+  notifyType: ""                                              # 可选: lark
+  notifyWebhookURL: ""                                                                    																									  # larkRobot Webhook
+  notifyTemplate_ban: "/templates/lark/ban.json"              # larkRobot发送的card消息模板，请勿更改路径
+  notifyTemplate_resolve: "/templates/lark/resolve.json"
+  notifyTemplate_common: "/templates/lark/common.json"
 ```
 
-**NOTE:** The makefile target mentioned above generates an 'install.yaml'
-file in the dist directory. This file contains all the resources built
-with Kustomize, which are necessary to install this project without its
-dependencies.
+### values.yaml
 
-2. Using the installer
+```yaml
+# values.yaml
+image:
+  repo: beatrueman/ipblock-operator
+  tag: "2.0"
+  pullPolicy: IfNotPresent
 
-Users can just run 'kubectl apply -f <URL for YAML BUNDLE>' to install
-the project, i.e.:
-
-```sh
-kubectl apply -f https://raw.githubusercontent.com/<org>/ipblock-operator/<tag or branch>/dist/install.yaml
+config:
+  gatewayHost: ""                                    # 封禁后端 URL
+  engine: ""                                         # 可选: xdp, iptables
+  whiteList: |										 # IP 白名单，支持在 ConfigMap中动态更新
+    1.2.3.4
+  notifyType: ""                                     # 可选: lark
+  notifyWebhookURL: ""                               # larkRobot Webhook
+  notifyTemplate:                                    # larkRobot发送的card消息模板
+    ban: "/templates/lark/ban.json"
+    resolve: "templates/lark/resolve.json"
+    common: "/templates/lark/common.json"
+  triggers:                                          # 触发器，目前仅支持 Grafana
+    - name: grafana
+      addr: ":8090"
+      path: "/trigger/grafana"
 ```
 
-### By providing a Helm Chart
+### Trigger配置
 
-1. Build the chart using the optional helm plugin
+#### Grafana
 
-```sh
-kubebuilder edit --plugins=helm/v1-alpha
+##### 字段介绍
+
+| 字段 | 说明                                     | 必需 |
+| :--- | :--------------------------------------- | :--- |
+| name | 触发器名称，当前支持 `grafana`           | 是   |
+| addr | 监听地址和端口，例如 `":8090"`           | 是   |
+| path | Webhook请求路径，例如 `/trigger/grafana` | 是   |
+
+##### Grafana Alert配置
+
+**配置联络点**
+
+将配置好的URL填入联络点的URL中。
+
+举例：`http://<your-ip>:8090/trigger/grafana`
+
+![image-20250703145604574](https://gitee.com/beatrueman/images/raw/master/20250703145604718.png)
+
+**配置警报规则**
+
+自定义警报规则，并选择联络点为刚才配置好的联络点。
+
+本例为1min内若访问次数超过80，则触发警报。
+
+![image-20250703145806206](https://gitee.com/beatrueman/images/raw/master/20250703145846163.png)
+
+![](https://gitee.com/beatrueman/images/raw/master/20250703145853517.png)
+
+### Notigy配置
+
+目前仅支持飞书Lark，后续将添加更多，如邮件、钉钉、企业微信等。
+
+#### Lark
+
+添加自定义机器人，并将获取到的Webhook地址填入配置的`notifyWebhookURL`即可。
+
+![image-20250703150204187](https://gitee.com/beatrueman/images/raw/master/20250703150204303.png)
+
+## 使用示例
+
+### 创建一个 IPBlock 资源
+
+```yaml
+apiVersion: ops.yiiong.top/v1
+kind: IPBlock
+metadata:
+  name: test-ipblock
+spec:
+  ip: "1.2.3.4"                       # 支持单IP / CIDR形式
+  reason: "模拟异常请求"                # 封禁原因
+  source: "manual"                    # 封禁源
+  by: "admin"                         # 封禁者
+  duration: "10m"                     # 封禁时长，当字段为空时，永久封禁  
 ```
 
-2. See that a chart was generated under 'dist/chart', and users
-can obtain this solution from there.
+CR创建成功后，如接入飞书，会向用户发起通知。
 
-**NOTE:** If you change the project, you need to update the Helm Chart
-using the same command above to sync the latest changes. Furthermore,
-if you create webhooks, you need to use the above command with
-the '--force' flag and manually ensure that any custom configuration
-previously added to 'dist/chart/values.yaml' or 'dist/chart/manager/manager.yaml'
-is manually re-applied afterwards.
+![image-20250703150503557](https://gitee.com/beatrueman/images/raw/master/20250703150503733.png)
 
-## Contributing
-// TODO(user): Add detailed information on how you would like others to contribute to this project
+### 对IP解封
 
-**NOTE:** Run `make help` for more information on all potential `make` targets
+```yaml
+apiVersion: ops.yiiong.top/v1
+kind: IPBlock
+metadata:
+  name: test-ipblock
+spec:
+  ip: "1.2.3.4"                      
+  reason: "模拟异常请求"                
+  source: "manual"                    
+  by: "admin"                         
+  unblock: true                      # 解封字段
+```
 
-More information can be found via the [Kubebuilder Documentation](https://book.kubebuilder.io/introduction.html)
+成功后，飞书会通知用户
 
-## License
+![image-20250703150639796](https://gitee.com/beatrueman/images/raw/master/20250703150639879.png)
 
-Copyright 2025.
+### 手动强制封禁
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+```yaml
+apiVersion: ops.yiiong.top/v1
+kind: IPBlock
+metadata:
+  name: test-ipblock
+spec:
+  ip: "1.2.3.4"                      
+  reason: "模拟异常请求"                
+  source: "manual"                    
+  by: "admin"                         
+  trigger: true                      # 重复封禁
+```
 
-    http://www.apache.org/licenses/LICENSE-2.0
+### 白名单跳过
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
+当在配置文件中指定了`WhiteList`（支持单IP / CIDR），CR会检测封禁IP是否在白名单中，如在则跳过。
