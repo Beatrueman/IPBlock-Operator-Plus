@@ -70,36 +70,6 @@ func (r *IPBlockReconciler) UpdateGatewayHost(newHost string) {
 	r.GatewayHost = newHost
 }
 
-func (r *IPBlockReconciler) GetGatewayHost() string {
-	// 获取读锁
-	r.mu.RLock()
-	defer r.mu.RUnlock()
-	return r.GatewayHost
-}
-
-func (r *IPBlockReconciler) GetGatewayHostOrLoad(ctx context.Context) string {
-	// 如果已经加载过，就直接返回
-	if r.GatewayHost != "" {
-		return r.GatewayHost
-	}
-
-	var cm corev1.ConfigMap
-	err := r.Client.Get(ctx, client.ObjectKey{
-		Name:      r.CmName,
-		Namespace: r.CmNamespace,
-	}, &cm)
-
-	if err != nil {
-		logf.Log.Error(err, "Failed to load ConfigMap, fallback to default gatewayHost")
-		r.GatewayHost = "127.0.0.1:9521"
-		return r.GatewayHost
-	}
-
-	r.GatewayHost = cm.Data["gatewayHost"]
-	logf.Log.Info("从 ConfigMap 加载 gatewayHost", "value", r.GatewayHost)
-	return r.GatewayHost
-}
-
 // +kubebuilder:rbac:groups="",resources=configmaps,verbs=get;list;watch
 // +kubebuilder:rbac:groups="",resources=events,verbs=create;patch
 // +kubebuilder:rbac:groups=ops.yiiong.top,resources=ipblocks,verbs=get;list;watch;create;update;patch;delete
