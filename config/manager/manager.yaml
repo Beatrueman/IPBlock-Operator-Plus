@@ -18,3 +18,4 @@ spec:
           image: "beatrueman/ipblock-operator:2.0"
           command:
             - /manager
+          args: []
