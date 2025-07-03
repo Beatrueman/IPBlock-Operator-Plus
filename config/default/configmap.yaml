@@ -16,3 +16,4 @@ data:
   notifyTemplate_ban: "../../ipblock-operator/internal/notify/lark/ban.json"              # larkRobot发送的card消息模板，注意路径对应
   notifyTemplate_resolve: "../../ipblock-operator/internal/notify/lark/resolve.json"
   notifyTemplate_common: "../../ipblock-operator/internal/notify/lark/common.json"
+
