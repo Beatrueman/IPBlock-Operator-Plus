@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ipblock-operator-config
+data:
+  gatewayHost: ""                                                                         # 封禁后端 URL
+  engine: ""                                                                              # 可选: xdp, iptables
+  trigger: |                                                                              # 触发器，目前仅支持 Grafana
+    - name: grafana
+      addr: ":8090"
+      path: "/trigger/grafana"
+  whitelist: |                                                                            # IP 白名单，支持在 ConfigMap中动态更新
+    1.2.3.4
+  notifyType: "lark"                                                                      # 可选: lark
+  notifyWebhookURL: ""                                                                    # larkRobot Webhook
+  notifyTemplate_ban: "../../ipblock-operator/internal/notify/lark/ban.json"              # larkRobot发送的card消息模板，注意路径对应
+  notifyTemplate_resolve: "../../ipblock-operator/internal/notify/lark/resolve.json"
+  notifyTemplate_common: "../../ipblock-operator/internal/notify/lark/common.json"
