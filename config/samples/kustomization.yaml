@@ -1,4 +1,9 @@
 ## Append samples of your project ##
 resources:
+- configmap.yaml
 - ops_v1_ipblock.yaml
+- rbac/role.yaml
+- rbac/role_binding.yaml
+- rbac/service_account.yaml
+- manager/manager.yaml
 # +kubebuilder:scaffold:manifestskustomizesamples
