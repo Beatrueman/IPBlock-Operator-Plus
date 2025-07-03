@@ -180,13 +180,21 @@ func (r *IPBlockReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ct
 			}
 		}
 
+		// 先保存原始副本
+		patch := client.MergeFrom(ipblock.DeepCopy())
+
 		ipblock.Spec.Unblock = false
-		if err := r.Update(ctx, &ipblock); err != nil {
-			logger.Error(err, "更新 Spec（清除 unblock）失败")
+
+		// Patch 更新 Spec
+		if err := r.Patch(ctx, &ipblock, patch); err != nil {
+			logger.Error(err, "Patch 更新 Spec（清除 unblock）失败")
 			return ctrl.Result{}, err
 		}
-		if err := r.Status().Update(ctx, &ipblock); err != nil {
-			logger.Error(err, "更新 Status（手动解封）失败")
+
+		statusPatch := client.MergeFrom(ipblock.DeepCopy())
+
+		if err := r.Status().Patch(ctx, &ipblock, statusPatch); err != nil {
+			logger.Error(err, "Patch 更新 Status（手动解封）失败")
 			return ctrl.Result{}, err
 		}
 		return ctrl.Result{}, nil

@@ -24,7 +24,7 @@ COPY internal/ internal/
 RUN CGO_ENABLED=0 GOOS=${TARGETOS:-linux} GOARCH=${TARGETARCH} go build -a -o manager cmd/main.go
 
 RUN mkdir -p /workspace/templates/lark && \
-    cp internal/notify/lark/*json /workspace/templates/lark && \
+    cp internal/notify/lark/*json /workspace/templates/lark
 
 # Use distroless as minimal base image to package the manager binary
 # Refer to https://github.com/GoogleContainerTools/distroless for more details
