@@ -160,14 +160,6 @@ func (r *IPBlockReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ct
 			logger.Error(err, "Patch 更新 Spec（清除 unblock）失败")
 			return ctrl.Result{}, err
 		}
-
-		statusPatch := client.MergeFrom(ipblock.DeepCopy())
-
-		if err := r.Status().Patch(ctx, &ipblock, statusPatch); err != nil {
-			logger.Error(err, "Patch 更新 Status（手动解封）失败")
-			return ctrl.Result{}, err
-		}
-		return ctrl.Result{}, nil
 	}
 
 	// ==== Step 2: 白名单跳过（只在非 trigger 情况下判断）====
