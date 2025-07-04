@@ -252,8 +252,6 @@ config:
 
 ![image-20250703145806206](https://gitee.com/beatrueman/images/raw/master/20250703145846163.png)
 
-![](https://gitee.com/beatrueman/images/raw/master/20250703145853517.png)
-
 ### Notigy配置
 
 目前仅支持飞书Lark，后续将添加更多，如邮件、钉钉、企业微信等。
