@@ -6,6 +6,7 @@ metadata:
 spec:
   selector:
     app: ipblock-operator
+  type: NodePort
   ports:
     - name: grafana
       port: 8090              # Service 对外暴露端口

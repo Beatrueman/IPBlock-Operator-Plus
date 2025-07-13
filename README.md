@@ -14,7 +14,7 @@ IPBlock-Operator-Plus 项目由以下五个核心模块组成：
 
 - **Controller（控制器）**
 
-​	负责核心业务逻辑的调度和协调，监听 Kubernetes 中 IPBlock 自定义资源的变化，维护和管理其生命周期。它是整个项目的核心部分，协调各个模块协同工作。
+  负责核心业务逻辑的调度和协调，监听 Kubernetes 中 IPBlock 自定义资源的变化，维护和管理其生命周期。它是整个项目的核心部分，协调各个模块协同工作。
 
 - **Engine（封禁后端）**
 
@@ -22,7 +22,7 @@ IPBlock-Operator-Plus 项目由以下五个核心模块组成：
 
 - **Notify（通知机制）**
 
-​	负责将封禁、解封等事件以多种方式通知给运维人员或其他系统。现支持飞书通知渠道，开发人员可通过自定义插件（实现接口）灵活添加更多通知方式。
+  负责将封禁、解封等事件以多种方式通知给运维人员或其他系统。现支持飞书通知渠道，开发人员可通过自定义插件（实现接口）灵活添加更多通知方式。
 
 - **Trigger（触发器）**
 
@@ -80,7 +80,7 @@ image:
 config:
   gatewayHost: ""                                    # 封禁后端 URL
   engine: ""                                         # 可选: xdp, iptables
-  whiteList: |										                   # IP 白名单，支持在 ConfigMap中动态更新
+  whiteList: |			                     # IP 白名单，支持在 ConfigMap中动态更新
     1.2.3.4
   notifyType: ""                                     # 可选: lark
   notifyWebhookURL: ""                               # larkRobot Webhook
@@ -138,7 +138,7 @@ data:
   notifyTemplate_common: "/templates/lark/common.json"
 ```
 
-> **注意：**如果您遇到 RBAC 错误，您可能需要授予自己 cluster-admin 权限或以 admin 身份登录。
+> 注意：如果您遇到 RBAC 错误，您可能需要授予自己 cluster-admin 权限或以 admin 身份登录。
 
 ```shell
 make deploy
