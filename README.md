@@ -74,7 +74,7 @@ WantedBy=multi-user.target
 # values.yaml
 image:
   repo: beatrueman/ipblock-operator
-  tag: "2.0"
+  tag: "6.0"
   pullPolicy: IfNotPresent
 
 config:
@@ -202,13 +202,13 @@ data:
 # values.yaml
 image:
   repo: beatrueman/ipblock-operator
-  tag: "2.0"
+  tag: "6.0"
   pullPolicy: IfNotPresent
 
 config:
   gatewayHost: ""                                    # 封禁后端 URL
   engine: ""                                         # 可选: xdp, iptables
-  whiteList: |										                   # IP 白名单，支持在 ConfigMap中动态更新
+  whiteList: |					     # IP 白名单，支持在 ConfigMap中动态更新
     1.2.3.4
   notifyType: ""                                     # 可选: lark
   notifyWebhookURL: ""                               # larkRobot Webhook
@@ -216,6 +216,7 @@ config:
     ban: "/templates/lark/ban.json"
     resolve: "templates/lark/resolve.json"
     common: "/templates/lark/common.json"
+  ServiceType: NodePort
   triggers:                                          # 触发器，目前仅支持 Grafana
     - name: grafana
       addr: ":8090"
@@ -240,7 +241,7 @@ config:
 
 将配置好的URL填入联络点的URL中。
 
-举例：`http://<your-ip>:8090/trigger/grafana`
+举例：`http://<your-ip>:<NodePort>/trigger/grafana`
 
 ![image-20250703145604574](https://gitee.com/beatrueman/images/raw/master/20250703145604718.png)
 

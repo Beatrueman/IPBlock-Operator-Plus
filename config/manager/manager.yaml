@@ -15,7 +15,7 @@ spec:
       serviceAccountName: controller-manager
       containers:
         - name: operator
-          image: "beatrueman/ipblock-operator:4.0"
+          image: "beatrueman/ipblock-operator:6.0"
           command:
             - /manager
           args: []

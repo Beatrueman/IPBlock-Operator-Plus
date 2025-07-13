@@ -1,19 +1,20 @@
 image:
   repo: beatrueman/ipblock-operator
-  tag: "4.0"
-  pullPolicy: IfNotPresent
+  tag: "6.0"
+  pullPolicy: Always
 
 config:
   gatewayHost: "" # 封禁后端 URL
   engine: "" # 可选: xdp, iptables
   whiteList: |
     1.2.3.4
-  notifyType: "" # 可选: lark
+  notifyType: "lark" # 可选: lark
   notifyWebhookURL: "" # larkRobot Webhook
-  notifyTemplate: # larkRobot发送的card消息模板
+  notifyTemplate: # larkRobot发送的card消息模板，请勿更改
     ban: "/templates/lark/ban.json"
     resolve: "templates/lark/resolve.json"
     common: "/templates/lark/common.json"
+  ServiceType: NodePort
   triggers: # 触发器，目前仅支持 Grafana
     - name: grafana
       addr: ":8090"

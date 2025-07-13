@@ -24,12 +24,14 @@ import (
 	"github/Beatrueman/ipblock-operator/internal/engine"
 	"github/Beatrueman/ipblock-operator/internal/notify/lark"
 	"github/Beatrueman/ipblock-operator/internal/trigger"
+	"github/Beatrueman/ipblock-operator/internal/utils"
 	"k8s.io/apimachinery/pkg/util/yaml"
 	"k8s.io/client-go/tools/cache"
 	"os"
 	"path/filepath"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 	"strings"
+	"time"
 
 	// Import all Kubernetes client auth plugins (e.g. Azure, GCP, OIDC, etc.)
 	// to ensure that exec-entrypoint and run can make use of them.
@@ -88,6 +90,11 @@ func CreateTriggerByConfig(cfg TriggerConfig, mgr ctrl.Manager) trigger.Trigger 
 			Client: mgr.GetClient(),
 			Addr:   cfg.Addr,
 			Path:   cfg.Path,
+			// 1000 个 IP， 60 秒防抖
+			// LRU中最多保存1000个IP，达到1000个后会自动淘汰最近最少使用的IP
+			// 对于同一个IP，如果最近60s内发生过一次封禁，那么这60s内再次收到该IP的相同请求时，会被防抖识别为重复
+			Debouncer: utils.NewLRUDebouncer(1000, 60*time.Second),
+			IPLocker:  utils.NewIPLock(),
 		}
 	// TODO 其他触发器 ...
 	default:
