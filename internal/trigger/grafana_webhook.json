@@ -1,0 +1,887 @@
+{
+    "receiver": "IPBlocker",
+    "status": "firing",
+    "alerts": [
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "106.42.44.137",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 106.42.44.137 发起的iso下载请求过于频繁（3小时内 22 次）",
+                "summary": "IP 106.42.44.137 发起的iso下载请求过于频繁（3小时内 22 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "bab33bd7854d3a5c",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D106.42.44.137\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 22
+            },
+            "valueString": "[ var='A' labels={ip=106.42.44.137} value=22 ]",
+            "orgId": 1
+        },
+        {
+            "status": "resolved",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "106.88.219.88",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 106.88.219.88 发起的iso下载请求过于频繁（3小时内 11 次）",
+                "grafana_state_reason": "MissingSeries",
+                "summary": "IP 106.88.219.88 发起的iso下载请求过于频繁（3小时内 11 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "2025-12-14T08:35:30Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "791630659e83ed3f",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D106.88.219.88\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 11
+            },
+            "valueString": "[ var='A' labels={ip=106.88.219.88} value=11 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "110.253.148.50",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 110.253.148.50 发起的iso下载请求过于频繁（3小时内 68 次）",
+                "summary": "IP 110.253.148.50 发起的iso下载请求过于频繁（3小时内 68 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "de627c126b339f20",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D110.253.148.50\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 68
+            },
+            "valueString": "[ var='A' labels={ip=110.253.148.50} value=68 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "112.94.74.36",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 112.94.74.36 发起的iso下载请求过于频繁（3小时内 26 次）",
+                "summary": "IP 112.94.74.36 发起的iso下载请求过于频繁（3小时内 26 次）"
+            },
+            "startsAt": "2025-12-14T08:51:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "8ad58d9ab3bbebf5",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D112.94.74.36\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 26
+            },
+            "valueString": "[ var='A' labels={ip=112.94.74.36} value=26 ]",
+            "orgId": 1
+        },
+        {
+            "status": "resolved",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "113.110.168.197",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 113.110.168.197 发起的iso下载请求过于频繁（3小时内 42 次）",
+                "grafana_state_reason": "MissingSeries",
+                "summary": "IP 113.110.168.197 发起的iso下载请求过于频繁（3小时内 42 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "2025-12-14T08:45:30Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "31bde0ed0c9225e9",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D113.110.168.197\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 42
+            },
+            "valueString": "[ var='A' labels={ip=113.110.168.197} value=42 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "113.249.171.186",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 113.249.171.186 发起的iso下载请求过于频繁（3小时内 51 次）",
+                "summary": "IP 113.249.171.186 发起的iso下载请求过于频繁（3小时内 51 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "72a492c83d25839e",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D113.249.171.186\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 51
+            },
+            "valueString": "[ var='A' labels={ip=113.249.171.186} value=51 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "117.40.244.138",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 117.40.244.138 发起的iso下载请求过于频繁（3小时内 12 次）",
+                "summary": "IP 117.40.244.138 发起的iso下载请求过于频繁（3小时内 12 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "23bc487566b5ce1f",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D117.40.244.138\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 12
+            },
+            "valueString": "[ var='A' labels={ip=117.40.244.138} value=12 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "120.86.236.224",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 120.86.236.224 发起的iso下载请求过于频繁（3小时内 541 次）",
+                "summary": "IP 120.86.236.224 发起的iso下载请求过于频繁（3小时内 541 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "9239f6e1c3e05e82",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D120.86.236.224\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 541
+            },
+            "valueString": "[ var='A' labels={ip=120.86.236.224} value=541 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "123.152.212.190",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 123.152.212.190 发起的iso下载请求过于频繁（3小时内 12 次）",
+                "summary": "IP 123.152.212.190 发起的iso下载请求过于频繁（3小时内 12 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "bbe32081351883e1",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D123.152.212.190\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 12
+            },
+            "valueString": "[ var='A' labels={ip=123.152.212.190} value=12 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "14.222.183.21",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 14.222.183.21 发起的iso下载请求过于频繁（3小时内 11 次）",
+                "summary": "IP 14.222.183.21 发起的iso下载请求过于频繁（3小时内 11 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "beb6708780fa4f04",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D14.222.183.21\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 11
+            },
+            "valueString": "[ var='A' labels={ip=14.222.183.21} value=11 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "163.125.203.100",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 163.125.203.100 发起的iso下载请求过于频繁（3小时内 19 次）",
+                "summary": "IP 163.125.203.100 发起的iso下载请求过于频繁（3小时内 19 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "b2d24cecff4e918c",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D163.125.203.100\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 19
+            },
+            "valueString": "[ var='A' labels={ip=163.125.203.100} value=19 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "182.118.237.35",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 182.118.237.35 发起的iso下载请求过于频繁（3小时内 15 次）",
+                "summary": "IP 182.118.237.35 发起的iso下载请求过于频繁（3小时内 15 次）"
+            },
+            "startsAt": "2025-12-14T08:49:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "e07cab96c070d421",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D182.118.237.35\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 15
+            },
+            "valueString": "[ var='A' labels={ip=182.118.237.35} value=15 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "223.104.234.49",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 223.104.234.49 发起的iso下载请求过于频繁（3小时内 48 次）",
+                "summary": "IP 223.104.234.49 发起的iso下载请求过于频繁（3小时内 48 次）"
+            },
+            "startsAt": "2025-12-14T08:25:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "c06e3d0458756f8e",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D223.104.234.49\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 48
+            },
+            "valueString": "[ var='A' labels={ip=223.104.234.49} value=48 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "2408:8240:4031:9771:899e:22fc:6e27:4228",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 2408:8240:4031:9771:899e:22fc:6e27:4228 发起的iso下载请求过于频繁（3小时内 12 次）",
+                "summary": "IP 2408:8240:4031:9771:899e:22fc:6e27:4228 发起的iso下载请求过于频繁（3小时内 12 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "259dce58fb792cb8",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2408%3A8240%3A4031%3A9771%3A899e%3A22fc%3A6e27%3A4228\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 12
+            },
+            "valueString": "[ var='A' labels={ip=2408:8240:4031:9771:899e:22fc:6e27:4228} value=12 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "2408:8920:0:73a6:b939:b8d8:7ca6:3a27",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 2408:8920:0:73a6:b939:b8d8:7ca6:3a27 发起的iso下载请求过于频繁（3小时内 15 次）",
+                "summary": "IP 2408:8920:0:73a6:b939:b8d8:7ca6:3a27 发起的iso下载请求过于频繁（3小时内 15 次）"
+            },
+            "startsAt": "2025-12-14T08:49:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "3bb682ef19f5a099",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2408%3A8920%3A0%3A73a6%3Ab939%3Ab8d8%3A7ca6%3A3a27\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 15
+            },
+            "valueString": "[ var='A' labels={ip=2408:8920:0:73a6:b939:b8d8:7ca6:3a27} value=15 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "2409:8730:4110:1c10:4022::9",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 2409:8730:4110:1c10:4022::9 发起的iso下载请求过于频繁（3小时内 45 次）",
+                "summary": "IP 2409:8730:4110:1c10:4022::9 发起的iso下载请求过于频繁（3小时内 45 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "f3ea5fd9e97dbb11",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8730%3A4110%3A1c10%3A4022%3A%3A9\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 45
+            },
+            "valueString": "[ var='A' labels={ip=2409:8730:4110:1c10:4022::9} value=45 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "2409:8738:a13:1700::3",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 2409:8738:a13:1700::3 发起的iso下载请求过于频繁（3小时内 32 次）",
+                "summary": "IP 2409:8738:a13:1700::3 发起的iso下载请求过于频繁（3小时内 32 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "75d4081b21dbad81",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3A3\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 32
+            },
+            "valueString": "[ var='A' labels={ip=2409:8738:a13:1700::3} value=32 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "2409:8738:a13:1700::4",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 2409:8738:a13:1700::4 发起的iso下载请求过于频繁（3小时内 16 次）",
+                "summary": "IP 2409:8738:a13:1700::4 发起的iso下载请求过于频繁（3小时内 16 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "de40ad70b14028b8",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3A4\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 16
+            },
+            "valueString": "[ var='A' labels={ip=2409:8738:a13:1700::4} value=16 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "2409:8738:a13:1700::5",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 2409:8738:a13:1700::5 发起的iso下载请求过于频繁（3小时内 25 次）",
+                "summary": "IP 2409:8738:a13:1700::5 发起的iso下载请求过于频繁（3小时内 25 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "1d64b7f3588d3a3f",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3A5\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 25
+            },
+            "valueString": "[ var='A' labels={ip=2409:8738:a13:1700::5} value=25 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "2409:8738:a13:1700::6",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 2409:8738:a13:1700::6 发起的iso下载请求过于频繁（3小时内 12 次）",
+                "summary": "IP 2409:8738:a13:1700::6 发起的iso下载请求过于频繁（3小时内 12 次）"
+            },
+            "startsAt": "2025-12-14T08:49:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "c61de58e936ac596",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3A6\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 12
+            },
+            "valueString": "[ var='A' labels={ip=2409:8738:a13:1700::6} value=12 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "2409:8738:a13:1700::7",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 2409:8738:a13:1700::7 发起的iso下载请求过于频繁（3小时内 16 次）",
+                "summary": "IP 2409:8738:a13:1700::7 发起的iso下载请求过于频繁（3小时内 16 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "0a989f72bcfe824d",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3A7\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 16
+            },
+            "valueString": "[ var='A' labels={ip=2409:8738:a13:1700::7} value=16 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "2409:8738:a13:1700::9",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 2409:8738:a13:1700::9 发起的iso下载请求过于频繁（3小时内 12 次）",
+                "summary": "IP 2409:8738:a13:1700::9 发起的iso下载请求过于频繁（3小时内 12 次）"
+            },
+            "startsAt": "2025-12-14T08:35:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "cdc22d458b7680fb",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3A9\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 12
+            },
+            "valueString": "[ var='A' labels={ip=2409:8738:a13:1700::9} value=12 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "2409:8738:a13:1700::a",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 2409:8738:a13:1700::a 发起的iso下载请求过于频繁（3小时内 12 次）",
+                "summary": "IP 2409:8738:a13:1700::a 发起的iso下载请求过于频繁（3小时内 12 次）"
+            },
+            "startsAt": "2025-12-14T08:51:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "094a4b75356b82e3",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3Aa\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 12
+            },
+            "valueString": "[ var='A' labels={ip=2409:8738:a13:1700::a} value=12 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "2409:8738:a13:1700::b",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 2409:8738:a13:1700::b 发起的iso下载请求过于频繁（3小时内 11 次）",
+                "summary": "IP 2409:8738:a13:1700::b 发起的iso下载请求过于频繁（3小时内 11 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "b9ff59f38a77b5aa",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3Ab\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 11
+            },
+            "valueString": "[ var='A' labels={ip=2409:8738:a13:1700::b} value=11 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "2409:8738:a13:1700::c",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 2409:8738:a13:1700::c 发起的iso下载请求过于频繁（3小时内 29 次）",
+                "summary": "IP 2409:8738:a13:1700::c 发起的iso下载请求过于频繁（3小时内 29 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "b01a55ea5c212d31",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3Ac\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 29
+            },
+            "valueString": "[ var='A' labels={ip=2409:8738:a13:1700::c} value=29 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "2409:897c:4fbb:834:c057:2788:ca1:298e",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 2409:897c:4fbb:834:c057:2788:ca1:298e 发起的iso下载请求过于频繁（3小时内 28 次）",
+                "summary": "IP 2409:897c:4fbb:834:c057:2788:ca1:298e 发起的iso下载请求过于频繁（3小时内 28 次）"
+            },
+            "startsAt": "2025-12-14T08:27:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "5dde8e941ad3ee2a",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A897c%3A4fbb%3A834%3Ac057%3A2788%3Aca1%3A298e\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 28
+            },
+            "valueString": "[ var='A' labels={ip=2409:897c:4fbb:834:c057:2788:ca1:298e} value=28 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "240e:670:a06:4d:1::2",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 240e:670:a06:4d:1::2 发起的iso下载请求过于频繁（3小时内 74 次）",
+                "summary": "IP 240e:670:a06:4d:1::2 发起的iso下载请求过于频繁（3小时内 74 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "d2535b33ae0f2d70",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D240e%3A670%3Aa06%3A4d%3A1%3A%3A2\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 74
+            },
+            "valueString": "[ var='A' labels={ip=240e:670:a06:4d:1::2} value=74 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "240e:670:a06:4d:1::3",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 240e:670:a06:4d:1::3 发起的iso下载请求过于频繁（3小时内 40 次）",
+                "summary": "IP 240e:670:a06:4d:1::3 发起的iso下载请求过于频繁（3小时内 40 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "9ea7ff63ef745f77",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D240e%3A670%3Aa06%3A4d%3A1%3A%3A3\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 40
+            },
+            "valueString": "[ var='A' labels={ip=240e:670:a06:4d:1::3} value=40 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "240e:670:a06:4d:1::5",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 240e:670:a06:4d:1::5 发起的iso下载请求过于频繁（3小时内 14 次）",
+                "summary": "IP 240e:670:a06:4d:1::5 发起的iso下载请求过于频繁（3小时内 14 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "3e289a74f7068c19",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D240e%3A670%3Aa06%3A4d%3A1%3A%3A5\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 14
+            },
+            "valueString": "[ var='A' labels={ip=240e:670:a06:4d:1::5} value=14 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "240e:670:a06:4d:1::6",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 240e:670:a06:4d:1::6 发起的iso下载请求过于频繁（3小时内 42 次）",
+                "summary": "IP 240e:670:a06:4d:1::6 发起的iso下载请求过于频繁（3小时内 42 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "e74333f253cc2e14",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D240e%3A670%3Aa06%3A4d%3A1%3A%3A6\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 42
+            },
+            "valueString": "[ var='A' labels={ip=240e:670:a06:4d:1::6} value=42 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "240e:670:a06:4d:1::7",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 240e:670:a06:4d:1::7 发起的iso下载请求过于频繁（3小时内 12 次）",
+                "summary": "IP 240e:670:a06:4d:1::7 发起的iso下载请求过于频繁（3小时内 12 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "cf9e330af033636b",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D240e%3A670%3Aa06%3A4d%3A1%3A%3A7\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 12
+            },
+            "valueString": "[ var='A' labels={ip=240e:670:a06:4d:1::7} value=12 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "2a09:bac5:398c:541::86:65",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 2a09:bac5:398c:541::86:65 发起的iso下载请求过于频繁（3小时内 11 次）",
+                "summary": "IP 2a09:bac5:398c:541::86:65 发起的iso下载请求过于频繁（3小时内 11 次）"
+            },
+            "startsAt": "2025-12-14T08:23:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "bf4de51d5965e04b",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2a09%3Abac5%3A398c%3A541%3A%3A86%3A65\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 11
+            },
+            "valueString": "[ var='A' labels={ip=2a09:bac5:398c:541::86:65} value=11 ]",
+            "orgId": 1
+        },
+        {
+            "status": "firing",
+            "labels": {
+                "alertname": "Mirror恶意访问IP",
+                "duration": "10m",
+                "grafana_folder": "系统管理/Mirrors",
+                "ip": "60.168.88.66",
+                "namespace": "mirror"
+            },
+            "annotations": {
+                "description": "IP 60.168.88.66 发起的iso下载请求过于频繁（3小时内 11 次）",
+                "summary": "IP 60.168.88.66 发起的iso下载请求过于频繁（3小时内 11 次）"
+            },
+            "startsAt": "2025-12-14T08:41:30Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1",
+            "fingerprint": "9d32d0b317b97ef3",
+            "silenceURL": "https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D60.168.88.66\u0026matcher=namespace%3Dmirror\u0026orgId=1",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "A": 11
+            },
+            "valueString": "[ var='A' labels={ip=60.168.88.66} value=11 ]",
+            "orgId": 1
+        }
+    ],
+    "groupLabels": {
+        "alertname": "Mirror恶意访问IP",
+        "grafana_folder": "系统管理/Mirrors"
+    },
+    "commonLabels": {
+        "alertname": "Mirror恶意访问IP",
+        "duration": "10m",
+        "grafana_folder": "系统管理/Mirrors",
+        "namespace": "mirror"
+    },
+    "commonAnnotations": {
+
+    },
+    "externalURL": "https://grafana.redrock.team/",
+    "version": "1",
+    "groupKey": "{}/{__grafana_autogenerated__=\"true\"}/{__grafana_receiver__=\"IPBlocker\"}:{alertname=\"Mirror恶意访问IP\", grafana_folder=\"系统管理/Mirrors\"}",
+    "truncatedAlerts": 0,
+    "orgId": 1,
+    "title": "[FIRING:31, RESOLVED:2] Mirror恶意访问IP 系统管理/Mirrors (10m mirror)",
+    "state": "alerting",
+    "message": "**Firing**\n\nValue: A=22\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 106.42.44.137\n - namespace = mirror\nAnnotations:\n - description = IP 106.42.44.137 发起的iso下载请求过于频繁（3小时内 22 次）\n - summary = IP 106.42.44.137 发起的iso下载请求过于频繁（3小时内 22 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D106.42.44.137\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=68\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 110.253.148.50\n - namespace = mirror\nAnnotations:\n - description = IP 110.253.148.50 发起的iso下载请求过于频繁（3小时内 68 次）\n - summary = IP 110.253.148.50 发起的iso下载请求过于频繁（3小时内 68 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D110.253.148.50\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=26\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 112.94.74.36\n - namespace = mirror\nAnnotations:\n - description = IP 112.94.74.36 发起的iso下载请求过于频繁（3小时内 26 次）\n - summary = IP 112.94.74.36 发起的iso下载请求过于频繁（3小时内 26 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D112.94.74.36\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=51\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 113.249.171.186\n - namespace = mirror\nAnnotations:\n - description = IP 113.249.171.186 发起的iso下载请求过于频繁（3小时内 51 次）\n - summary = IP 113.249.171.186 发起的iso下载请求过于频繁（3小时内 51 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D113.249.171.186\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=12\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 117.40.244.138\n - namespace = mirror\nAnnotations:\n - description = IP 117.40.244.138 发起的iso下载请求过于频繁（3小时内 12 次）\n - summary = IP 117.40.244.138 发起的iso下载请求过于频繁（3小时内 12 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D117.40.244.138\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=541\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 120.86.236.224\n - namespace = mirror\nAnnotations:\n - description = IP 120.86.236.224 发起的iso下载请求过于频繁（3小时内 541 次）\n - summary = IP 120.86.236.224 发起的iso下载请求过于频繁（3小时内 541 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D120.86.236.224\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=12\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 123.152.212.190\n - namespace = mirror\nAnnotations:\n - description = IP 123.152.212.190 发起的iso下载请求过于频繁（3小时内 12 次）\n - summary = IP 123.152.212.190 发起的iso下载请求过于频繁（3小时内 12 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D123.152.212.190\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=11\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 14.222.183.21\n - namespace = mirror\nAnnotations:\n - description = IP 14.222.183.21 发起的iso下载请求过于频繁（3小时内 11 次）\n - summary = IP 14.222.183.21 发起的iso下载请求过于频繁（3小时内 11 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D14.222.183.21\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=19\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 163.125.203.100\n - namespace = mirror\nAnnotations:\n - description = IP 163.125.203.100 发起的iso下载请求过于频繁（3小时内 19 次）\n - summary = IP 163.125.203.100 发起的iso下载请求过于频繁（3小时内 19 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D163.125.203.100\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=15\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 182.118.237.35\n - namespace = mirror\nAnnotations:\n - description = IP 182.118.237.35 发起的iso下载请求过于频繁（3小时内 15 次）\n - summary = IP 182.118.237.35 发起的iso下载请求过于频繁（3小时内 15 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D182.118.237.35\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=48\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 223.104.234.49\n - namespace = mirror\nAnnotations:\n - description = IP 223.104.234.49 发起的iso下载请求过于频繁（3小时内 48 次）\n - summary = IP 223.104.234.49 发起的iso下载请求过于频繁（3小时内 48 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D223.104.234.49\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=12\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 2408:8240:4031:9771:899e:22fc:6e27:4228\n - namespace = mirror\nAnnotations:\n - description = IP 2408:8240:4031:9771:899e:22fc:6e27:4228 发起的iso下载请求过于频繁（3小时内 12 次）\n - summary = IP 2408:8240:4031:9771:899e:22fc:6e27:4228 发起的iso下载请求过于频繁（3小时内 12 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2408%3A8240%3A4031%3A9771%3A899e%3A22fc%3A6e27%3A4228\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=15\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 2408:8920:0:73a6:b939:b8d8:7ca6:3a27\n - namespace = mirror\nAnnotations:\n - description = IP 2408:8920:0:73a6:b939:b8d8:7ca6:3a27 发起的iso下载请求过于频繁（3小时内 15 次）\n - summary = IP 2408:8920:0:73a6:b939:b8d8:7ca6:3a27 发起的iso下载请求过于频繁（3小时内 15 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2408%3A8920%3A0%3A73a6%3Ab939%3Ab8d8%3A7ca6%3A3a27\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=45\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 2409:8730:4110:1c10:4022::9\n - namespace = mirror\nAnnotations:\n - description = IP 2409:8730:4110:1c10:4022::9 发起的iso下载请求过于频繁（3小时内 45 次）\n - summary = IP 2409:8730:4110:1c10:4022::9 发起的iso下载请求过于频繁（3小时内 45 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8730%3A4110%3A1c10%3A4022%3A%3A9\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=32\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 2409:8738:a13:1700::3\n - namespace = mirror\nAnnotations:\n - description = IP 2409:8738:a13:1700::3 发起的iso下载请求过于频繁（3小时内 32 次）\n - summary = IP 2409:8738:a13:1700::3 发起的iso下载请求过于频繁（3小时内 32 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3A3\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=16\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 2409:8738:a13:1700::4\n - namespace = mirror\nAnnotations:\n - description = IP 2409:8738:a13:1700::4 发起的iso下载请求过于频繁（3小时内 16 次）\n - summary = IP 2409:8738:a13:1700::4 发起的iso下载请求过于频繁（3小时内 16 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3A4\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=25\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 2409:8738:a13:1700::5\n - namespace = mirror\nAnnotations:\n - description = IP 2409:8738:a13:1700::5 发起的iso下载请求过于频繁（3小时内 25 次）\n - summary = IP 2409:8738:a13:1700::5 发起的iso下载请求过于频繁（3小时内 25 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3A5\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=12\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 2409:8738:a13:1700::6\n - namespace = mirror\nAnnotations:\n - description = IP 2409:8738:a13:1700::6 发起的iso下载请求过于频繁（3小时内 12 次）\n - summary = IP 2409:8738:a13:1700::6 发起的iso下载请求过于频繁（3小时内 12 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3A6\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=16\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 2409:8738:a13:1700::7\n - namespace = mirror\nAnnotations:\n - description = IP 2409:8738:a13:1700::7 发起的iso下载请求过于频繁（3小时内 16 次）\n - summary = IP 2409:8738:a13:1700::7 发起的iso下载请求过于频繁（3小时内 16 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3A7\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=12\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 2409:8738:a13:1700::9\n - namespace = mirror\nAnnotations:\n - description = IP 2409:8738:a13:1700::9 发起的iso下载请求过于频繁（3小时内 12 次）\n - summary = IP 2409:8738:a13:1700::9 发起的iso下载请求过于频繁（3小时内 12 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3A9\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=12\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 2409:8738:a13:1700::a\n - namespace = mirror\nAnnotations:\n - description = IP 2409:8738:a13:1700::a 发起的iso下载请求过于频繁（3小时内 12 次）\n - summary = IP 2409:8738:a13:1700::a 发起的iso下载请求过于频繁（3小时内 12 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3Aa\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=11\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 2409:8738:a13:1700::b\n - namespace = mirror\nAnnotations:\n - description = IP 2409:8738:a13:1700::b 发起的iso下载请求过于频繁（3小时内 11 次）\n - summary = IP 2409:8738:a13:1700::b 发起的iso下载请求过于频繁（3小时内 11 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3Ab\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=29\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 2409:8738:a13:1700::c\n - namespace = mirror\nAnnotations:\n - description = IP 2409:8738:a13:1700::c 发起的iso下载请求过于频繁（3小时内 29 次）\n - summary = IP 2409:8738:a13:1700::c 发起的iso下载请求过于频繁（3小时内 29 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A8738%3Aa13%3A1700%3A%3Ac\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=28\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 2409:897c:4fbb:834:c057:2788:ca1:298e\n - namespace = mirror\nAnnotations:\n - description = IP 2409:897c:4fbb:834:c057:2788:ca1:298e 发起的iso下载请求过于频繁（3小时内 28 次）\n - summary = IP 2409:897c:4fbb:834:c057:2788:ca1:298e 发起的iso下载请求过于频繁（3小时内 28 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2409%3A897c%3A4fbb%3A834%3Ac057%3A2788%3Aca1%3A298e\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=74\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 240e:670:a06:4d:1::2\n - namespace = mirror\nAnnotations:\n - description = IP 240e:670:a06:4d:1::2 发起的iso下载请求过于频繁（3小时内 74 次）\n - summary = IP 240e:670:a06:4d:1::2 发起的iso下载请求过于频繁（3小时内 74 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D240e%3A670%3Aa06%3A4d%3A1%3A%3A2\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=40\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 240e:670:a06:4d:1::3\n - namespace = mirror\nAnnotations:\n - description = IP 240e:670:a06:4d:1::3 发起的iso下载请求过于频繁（3小时内 40 次）\n - summary = IP 240e:670:a06:4d:1::3 发起的iso下载请求过于频繁（3小时内 40 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D240e%3A670%3Aa06%3A4d%3A1%3A%3A3\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=14\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 240e:670:a06:4d:1::5\n - namespace = mirror\nAnnotations:\n - description = IP 240e:670:a06:4d:1::5 发起的iso下载请求过于频繁（3小时内 14 次）\n - summary = IP 240e:670:a06:4d:1::5 发起的iso下载请求过于频繁（3小时内 14 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D240e%3A670%3Aa06%3A4d%3A1%3A%3A5\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=42\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 240e:670:a06:4d:1::6\n - namespace = mirror\nAnnotations:\n - description = IP 240e:670:a06:4d:1::6 发起的iso下载请求过于频繁（3小时内 42 次）\n - summary = IP 240e:670:a06:4d:1::6 发起的iso下载请求过于频繁（3小时内 42 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D240e%3A670%3Aa06%3A4d%3A1%3A%3A6\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=12\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 240e:670:a06:4d:1::7\n - namespace = mirror\nAnnotations:\n - description = IP 240e:670:a06:4d:1::7 发起的iso下载请求过于频繁（3小时内 12 次）\n - summary = IP 240e:670:a06:4d:1::7 发起的iso下载请求过于频繁（3小时内 12 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D240e%3A670%3Aa06%3A4d%3A1%3A%3A7\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=11\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 2a09:bac5:398c:541::86:65\n - namespace = mirror\nAnnotations:\n - description = IP 2a09:bac5:398c:541::86:65 发起的iso下载请求过于频繁（3小时内 11 次）\n - summary = IP 2a09:bac5:398c:541::86:65 发起的iso下载请求过于频繁（3小时内 11 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D2a09%3Abac5%3A398c%3A541%3A%3A86%3A65\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=11\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 60.168.88.66\n - namespace = mirror\nAnnotations:\n - description = IP 60.168.88.66 发起的iso下载请求过于频繁（3小时内 11 次）\n - summary = IP 60.168.88.66 发起的iso下载请求过于频繁（3小时内 11 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D60.168.88.66\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\n\n**Resolved**\n\nValue: A=11\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 106.88.219.88\n - namespace = mirror\nAnnotations:\n - description = IP 106.88.219.88 发起的iso下载请求过于频繁（3小时内 11 次）\n - grafana_state_reason = MissingSeries\n - summary = IP 106.88.219.88 发起的iso下载请求过于频繁（3小时内 11 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D106.88.219.88\u0026matcher=namespace%3Dmirror\u0026orgId=1\n\nValue: A=42\nLabels:\n - alertname = Mirror恶意访问IP\n - duration = 10m\n - grafana_folder = 系统管理/Mirrors\n - ip = 113.110.168.197\n - namespace = mirror\nAnnotations:\n - description = IP 113.110.168.197 发起的iso下载请求过于频繁（3小时内 42 次）\n - grafana_state_reason = MissingSeries\n - summary = IP 113.110.168.197 发起的iso下载请求过于频繁（3小时内 42 次）\nSource: https://grafana.redrock.team/alerting/grafana/ceqiq4kj1vsowc/view?orgId=1\nSilence: https://grafana.redrock.team/alerting/silence/new?alertmanager=grafana\u0026matcher=__alert_rule_uid__%3Dceqiq4kj1vsowc\u0026matcher=duration%3D10m\u0026matcher=ip%3D113.110.168.197\u0026matcher=namespace%3Dmirror\u0026orgId=1\n"
+}

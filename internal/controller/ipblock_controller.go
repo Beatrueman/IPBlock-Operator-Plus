@@ -24,12 +24,12 @@ import (
 	"github/Beatrueman/ipblock-operator/internal/engine"
 	"github/Beatrueman/ipblock-operator/internal/notify"
 	"github/Beatrueman/ipblock-operator/internal/policy"
+	"sync"
+	"time"
+
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/client-go/tools/record"
 	"k8s.io/client-go/util/retry"
-	"strings"
-	"sync"
-	"time"
 
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
@@ -56,6 +56,8 @@ type IPBlockReconciler struct {
 	Whitelist     *policy.Whitelist // ConfigMap读取
 	mu            sync.RWMutex      // 读写锁
 	Notifier      notify.Notifier   // 通知接口
+	// 封禁计数器
+	BanCounter int64
 }
 
 func (r *IPBlockReconciler) UpdateWhitelist(wl *policy.Whitelist) {
@@ -120,7 +122,7 @@ func (r *IPBlockReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ct
 			if r.Notifier != nil {
 				go func() {
 					err := r.Notifier.Notify(ctx, "common", map[string]string{
-						"alarm_time": time.Now().Format("2006-01-02 15:04:05"),
+						"alarm_time": time.Now().UTC().Add(8 * time.Hour).Format("2006-01-02 15:04:05"),
 						"msg":        err.Error(),
 					})
 					if err != nil {
@@ -140,7 +142,7 @@ func (r *IPBlockReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ct
 			if r.Notifier != nil {
 				go func() {
 					err := r.Notifier.Notify(ctx, "resolve", map[string]string{
-						"alarm_time": time.Now().Format("2006-01-02 15:04:05"),
+						"alarm_time": time.Now().UTC().Add(8 * time.Hour).Format("2006-01-02 15:04:05"),
 						"ip":         ip,
 					})
 					if err != nil {
@@ -241,7 +243,7 @@ func (r *IPBlockReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ct
 		if r.Notifier != nil {
 			go func() {
 				err := r.Notifier.Notify(ctx, "common", map[string]string{
-					"alarm_time": time.Now().Format("2006-01-02 15:04:05"),
+					"alarm_time": time.Now().UTC().Add(8 * time.Hour).Format("2006-01-02 15:04:05"),
 					"msg":        err.Error(),
 				})
 				if err != nil {
@@ -252,35 +254,38 @@ func (r *IPBlockReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ct
 	} else {
 		logger.Info("封禁成功", "ip", ip)
 		r.Recorder.Event(&ipblock, corev1.EventTypeNormal, "BanSuccess", "IP ban succeeded")
+		newBanCount := ipblock.Status.BanCount + 1
+
 		r.UpdateIPBlockStatus(ctx, &ipblock, func(obj *opsv1.IPBlock) {
 			obj.Status.Result = "success"
 			obj.Status.Message = result
 			obj.Status.BlockedAt = time.Now().Format(time.RFC3339)
 			obj.Status.LastSpecHash = currentHash
 			obj.Status.Phase = "active"
+			obj.Status.BanCount = newBanCount
+
 		})
 
 		// 提取 Reason 中的 count
-		countExtra := func(reason string) string {
-			parts := strings.Split(ipblock.Spec.Reason, ":")
-			if len(parts) < 2 {
-				return ""
-			}
+		// countExtra := func(reason string) string {
+		// 	parts := strings.Split(ipblock.Spec.Reason, ":")
+		// 	if len(parts) < 2 {
+		// 		return ""
+		// 	}
 
-			count := strings.TrimSpace(parts[1])
-			countParts := strings.Fields(count)
-			if len(countParts) > 0 {
-				return countParts[0]
-			}
-			return count
-		}
+		// 	count := strings.TrimSpace(parts[1])
+		// 	countParts := strings.Fields(count)
+		// 	if len(countParts) > 0 {
+		// 		return countParts[0]
+		// 	}
+		// 	return count
+		// }
 
 		if r.Notifier != nil {
 			logger.Info("Notifier found, sending ban notification", "ip", ip)
 			err := r.Notifier.Notify(ctx, "ban", map[string]string{
-				"alarm_time": time.Now().Format("2006-01-02 15:04:05"),
-				"ip":         ip,
-				"count":      countExtra(ipblock.Spec.Reason), // 这里填实际count
+				"alarm_time": time.Now().UTC().Add(8 * time.Hour).Format("2006-01-02 15:04:05"),
+				"reason":     fmt.Sprintf("<第%d次封禁> %s", newBanCount, ipblock.Spec.Reason),
 			})
 			if err != nil {
 				logger.Error(err, "发送封禁通知失败", "ip", ip)
@@ -367,7 +372,7 @@ func (r *IPBlockReconciler) scheduleAutoUnblock(ipblock *opsv1.IPBlock) {
 			if r.Notifier != nil {
 				go func() {
 					err := r.Notifier.Notify(ctx, "common", map[string]string{
-						"alarm_time": time.Now().Format("2006-01-02 15:04:05"),
+						"alarm_time": time.Now().UTC().Add(8 * time.Hour).Format("2006-01-02 15:04:05"),
 						"msg":        err.Error(),
 					})
 					if err != nil {
@@ -384,7 +389,7 @@ func (r *IPBlockReconciler) scheduleAutoUnblock(ipblock *opsv1.IPBlock) {
 			if r.Notifier != nil {
 				go func() {
 					err := r.Notifier.Notify(ctx, "resolve", map[string]string{
-						"alarm_time": time.Now().Format("2006-01-02 15:04:05"),
+						"alarm_time": time.Now().UTC().Add(8 * time.Hour).Format("2006-01-02 15:04:05"),
 						"ip":         ip,
 					})
 					if err != nil {

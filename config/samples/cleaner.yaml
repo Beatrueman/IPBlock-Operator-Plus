@@ -1,0 +1,34 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: ipblock-cleaner
+  namespace: default
+spec:
+  schedule: "0 0 * * *"  # 每天 0 点执行一次
+  concurrencyPolicy: Forbid  # 防止上一次没结束就启动下一次
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: controller-manager  # 确保有权限 list/delete ipblocks
+          restartPolicy: OnFailure
+          containers:
+          - name: cleaner
+            image: bitnami/kubectl:latest
+            command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Starting IPBlock cleanup..."
+              # 获取 IPBlock 名称和 Age，只删超过 10 天的
+              kubectl get ipblocks --no-headers -o custom-columns=":metadata.name,:metadata.creationTimestamp" | while read name creation; do
+                  # 使用 k8s age 算法替代 date 解析
+                  # 获取创建时间到现在的天数
+                  age_days=$(( ( $(date +%s) - $(date -d "$creation" +%s) ) / 86400 ))
+                  if [ "$age_days" -gt 10 ]; then
+                      echo "Deleting IPBlock $name, age ${age_days}d"
+                      kubectl delete ipblock "$name"
+                  else
+                      echo "Keeping IPBlock $name, age ${age_days}d"
+                  fi
+              done

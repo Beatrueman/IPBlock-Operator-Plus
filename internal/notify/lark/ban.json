@@ -45,9 +45,9 @@
             "elements": [
               {
                 "tag": "markdown",
-                "content": "<font color=\"grey\">告警内容</font>\n**${ip}**\n 发起请求过于频繁（1分钟内 **${count}** 次）",
+                "content": "<font color=\"grey\">告警内容</font>\n${reason}",
                 "i18n_content": {
-                  "en_us": "<font color=\"grey\">Alert details</font>\nMobile client crash rate at 5%"
+                  "en_us": "<font color=\"grey\">Alert details</font>\n${reason}"
                 },
                 "text_align": "left",
                 "text_size": "normal_v2",

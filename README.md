@@ -1,3 +1,5 @@
+# README
+
 # IPBlock-Operator-Plus
 
 ## 项目简介
@@ -14,20 +16,18 @@ IPBlock-Operator-Plus 项目由以下五个核心模块组成：
 
 - **Controller（控制器）**
 
-  负责核心业务逻辑的调度和协调，监听 Kubernetes 中 IPBlock 自定义资源的变化，维护和管理其生命周期。它是整个项目的核心部分，协调各个模块协同工作。
+​	负责核心业务逻辑的调度和协调，监听 Kubernetes 中 IPBlock 自定义资源的变化，维护和管理其生命周期。它是整个项目的核心部分，协调各个模块协同工作。
 
 - **Engine（封禁后端）**
 
   负责封禁命令的实际执行。目前支持接入多种封禁机制（如XDP，iptables等）。通过插件化设计，便于快速扩展和替换不同的封禁技术方案。
-
 - **Notify（通知机制）**
 
-  负责将封禁、解封等事件以多种方式通知给运维人员或其他系统。现支持飞书通知渠道，开发人员可通过自定义插件（实现接口）灵活添加更多通知方式。
+​	负责将封禁、解封等事件以多种方式通知给运维人员或其他系统。现支持飞书通知渠道，开发人员可通过自定义插件（实现接口）灵活添加更多通知方式。
 
 - **Trigger（触发器）**
 
   事件触发中心，负责监听外部告警系统或业务事件（如 Grafana Alert等），并根据 Alert 策略触发相关封禁操作，自动创建 IPBlock CR，且支持自动解封。模块设计也方便开发人员接入多种告警来源。
-
 - **Policy（封禁策略）**
 
   定义 IP 封禁的判定规则和执行策略。现支持白名单机制，保障了封禁行为的精准与合理。
@@ -74,13 +74,13 @@ WantedBy=multi-user.target
 # values.yaml
 image:
   repo: beatrueman/ipblock-operator
-  tag: "6.0"
+  tag: "8.1"
   pullPolicy: IfNotPresent
 
 config:
   gatewayHost: ""                                    # 封禁后端 URL
   engine: ""                                         # 可选: xdp, iptables
-  whiteList: |			                     # IP 白名单，支持在 ConfigMap中动态更新
+  whiteList: |										                   # IP 白名单，支持在 ConfigMap中动态更新
     1.2.3.4
   notifyType: ""                                     # 可选: lark
   notifyWebhookURL: ""                               # larkRobot Webhook
@@ -138,7 +138,7 @@ data:
   notifyTemplate_common: "/templates/lark/common.json"
 ```
 
-> 注意：如果您遇到 RBAC 错误，您可能需要授予自己 cluster-admin 权限或以 admin 身份登录。
+> **注意：** 如果您遇到 RBAC 错误，您可能需要授予自己 cluster-admin 权限或以 admin 身份登录。
 
 ```shell
 make deploy
@@ -202,13 +202,13 @@ data:
 # values.yaml
 image:
   repo: beatrueman/ipblock-operator
-  tag: "6.0"
-  pullPolicy: IfNotPresent
+  tag: "8.1"
+  pullPolicy: Always
 
 config:
   gatewayHost: ""                                    # 封禁后端 URL
   engine: ""                                         # 可选: xdp, iptables
-  whiteList: |					     # IP 白名单，支持在 ConfigMap中动态更新
+  whiteList: |										                   # IP 白名单，支持在 ConfigMap中动态更新
     1.2.3.4
   notifyType: ""                                     # 可选: lark
   notifyWebhookURL: ""                               # larkRobot Webhook
@@ -229,11 +229,11 @@ config:
 
 ##### 字段介绍
 
-| 字段 | 说明                                     | 必需 |
-| :--- | :--------------------------------------- | :--- |
-| name | 触发器名称，当前支持 `grafana`           | 是   |
-| addr | 监听地址和端口，例如 `":8090"`           | 是   |
-| path | Webhook请求路径，例如 `/trigger/grafana` | 是   |
+|字段|说明|必需|
+| :---| :---------------------| :---|
+|name|触发器名称，当前支持 `grafana`|是|
+|addr|监听地址和端口，例如 `":8090"`|是|
+|path|Webhook请求路径，例如 `/trigger/grafana`|是|
 
 ##### Grafana Alert配置
 
@@ -241,7 +241,7 @@ config:
 
 将配置好的URL填入联络点的URL中。
 
-举例：`http://<your-ip>:<NodePort>/trigger/grafana`
+举例：`http://<your-ip>:<NodePort>/trigger/grafana`​
 
 ![image-20250703145604574](https://gitee.com/beatrueman/images/raw/master/20250703145604718.png)
 
@@ -253,6 +253,14 @@ config:
 
 ![image-20250703145806206](https://gitee.com/beatrueman/images/raw/master/20250703145846163.png)
 
+封禁时长可通过标签设置
+
+```
+duration: 10[s/m/h]
+```
+
+![image](https://gitee.com/beatrueman/images/raw/master/20251214235842092.png)
+
 ### Notigy配置
 
 目前仅支持飞书Lark，后续将添加更多，如邮件、钉钉、企业微信等。
@@ -262,6 +270,12 @@ config:
 添加自定义机器人，并将获取到的Webhook地址填入配置的`notifyWebhookURL`即可。
 
 ![image-20250703150204187](https://gitee.com/beatrueman/images/raw/master/20250703150204303.png)
+
+如果Trigger选择Grafana，Lark机器人通知内容会发送description的内容。
+
+![image](https://gitee.com/beatrueman/images/raw/master/20251214235846993.png)
+
+![image](https://gitee.com/beatrueman/images/raw/master/20251214235850775.png)
 
 ## 使用示例
 
@@ -283,6 +297,8 @@ spec:
 CR创建成功后，如接入飞书，会向用户发起通知。
 
 ![image-20250703150503557](https://gitee.com/beatrueman/images/raw/master/20250703150503733.png)
+
+![image](https://gitee.com/beatrueman/images/raw/master/20251214235855089.png)
 
 ### 对IP解封
 

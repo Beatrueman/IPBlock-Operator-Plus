@@ -1,7 +1,7 @@
 image:
   repo: beatrueman/ipblock-operator
-  tag: "6.0"
-  pullPolicy: Always
+  tag: "8.1"
+  pullPolicy: IfNotPresent
 
 config:
   gatewayHost: "" # 封禁后端 URL

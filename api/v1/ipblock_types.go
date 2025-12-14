@@ -28,9 +28,6 @@ import (
 type IPBlockSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
-
-	// Foo is an example field of IPBlock. Edit ipblock_types.go to remove/update
-	Foo      string   `json:"foo,omitempty"`
 	IP       string   `json:"ip"`                 // 目标IP
 	Reason   string   `json:"reason,omitempty"`   // 封禁原因
 	Source   string   `json:"source,omitempty"`   // 封禁来源，如 "alertmanager"、"manual"、"webhook"，便于追踪
@@ -53,6 +50,7 @@ type IPBlockStatus struct {
 	UnblockedAt  string `json:"unblockedAt,omitempty"`
 	Message      string `json:"message,omitempty"`
 	LastSpecHash string `json:"lastSpecHash,omitempty"`
+	BanCount     int64  `json:"banCount,omitempty"`
 }
 
 // +kubebuilder:object:root=true
