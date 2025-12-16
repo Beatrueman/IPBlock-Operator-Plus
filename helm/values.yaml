@@ -1,6 +1,6 @@
 image:
   repo: beatrueman/ipblock-operator
-  tag: "8.1"
+  tag: "8.2"
   pullPolicy: IfNotPresent
 
 config:

@@ -72,7 +72,7 @@
   "header": {
     "title": {
       "tag": "plain_text",
-      "content": "[已封禁] 疑似恶意IP",
+      "content": "[第${count}次封禁] 疑似恶意IP",
       "i18n_content": {
         "en_us": "[Action Needed] Alert: Process Error - Please Address Promptly"
       }

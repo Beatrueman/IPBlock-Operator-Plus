@@ -285,7 +285,8 @@ func (r *IPBlockReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ct
 			logger.Info("Notifier found, sending ban notification", "ip", ip)
 			err := r.Notifier.Notify(ctx, "ban", map[string]string{
 				"alarm_time": time.Now().UTC().Add(8 * time.Hour).Format("2006-01-02 15:04:05"),
-				"reason":     fmt.Sprintf("<第%d次封禁> %s", newBanCount, ipblock.Spec.Reason),
+				"reason":     fmt.Sprintf("%s", ipblock.Spec.Reason),
+				"count":      fmt.Sprintf("%d", newBanCount),
 			})
 			if err != nil {
 				logger.Error(err, "发送封禁通知失败", "ip", ip)

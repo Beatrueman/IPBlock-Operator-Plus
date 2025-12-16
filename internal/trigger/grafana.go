@@ -24,9 +24,6 @@ type GrafanaTrigger struct {
 	Path      string          // 监听路由，填写在 alert 联络点里
 	Debouncer utils.Debouncer // 防抖，防止同个 IP Webhook多次，生成多个相同 IP 的 CR
 	IPLocker  *utils.IPLock   // 防止竞争
-	// 计数器
-	BanCounter int64
-	CounterMux sync.Mutex
 }
 
 func (g *GrafanaTrigger) Name() string {
@@ -83,9 +80,10 @@ type GrafanaAlert struct {
 
 func (g *GrafanaTrigger) handleWebhook(w http.ResponseWriter, r *http.Request) {
 	logger := logf.FromContext(r.Context())
+
 	var payload GrafanaAlert
 	if err := json.NewDecoder(r.Body).Decode(&payload); err != nil {
-		http.Error(w, err.Error(), http.StatusBadRequest)
+		http.Error(w, fmt.Sprintf("invalid JSON: %v", err), http.StatusBadRequest)
 		return
 	}
 
@@ -93,69 +91,79 @@ func (g *GrafanaTrigger) handleWebhook(w http.ResponseWriter, r *http.Request) {
 		if alert.Status != "firing" {
 			continue
 		}
+
 		ip := alert.Labels["ip"]
 		duration := alert.Labels["duration"]
 		description := alert.Annotations["description"]
 
-		// var count string
-		// if val, ok := alert.Values["A"]; ok {
-		// 	count = fmt.Sprintf("%.0f", val.(float64))
-		// }
 		if ip == "" {
 			continue
 		}
 
-		// 避免并发时的竞争和死锁
 		func(ip string) {
 			g.IPLocker.Lock(ip)
 			defer g.IPLocker.Unlock(ip)
-			// 防抖，防止重复创建 CR
+
+			// 防抖，避免重复创建或 patch
 			if !g.Debouncer.ShouldAllow(ip) {
 				logger.Info("[grafana] Skip duplicate IPBlock within TTL", "ip", ip)
 				return
 			}
 
 			crName := utils.GenCRName(ip)
-
-			// 先判断 CR 是否已经存在
 			var existing opsv1.IPBlock
+
 			err := g.Client.Get(context.Background(), client.ObjectKey{
 				Name:      crName,
 				Namespace: "default",
 			}, &existing)
 
-			// 如果 NotFound，继续创建
 			if err != nil && !apierrors.IsNotFound(err) {
 				logger.Error(err, "[grafana] Error checking IPBlock existence", "ip", ip)
 				return
 			}
 
+			// CR 已存在
 			if err == nil {
-				// CR 已存在
-				g.IPLocker.Lock(ip)
-				defer g.IPLocker.Unlock(ip)
+				phase := existing.Status.Phase
 
-				// 只有当 Trigger 还没被置 true，或者状态是 expired 才触发
-				if !existing.Spec.Trigger || existing.Status.Phase == "expired" {
-					logger.Info("[grafana] IPBlock exists, patch to trigger reconciling", "ip", ip)
-					patch := client.MergeFrom(existing.DeepCopy())
+				switch phase {
+				// 不打扰的状态
+				case "active", "skipped", "failed":
+					logger.Info("[grafana] Skip patch, IPBlock phase does not allow re-trigger",
+						"ip", ip,
+						"phase", phase)
+					return
+				// 允许重新触发的状态，状态流转
+				case "pending", "expired":
+					if !existing.Spec.Trigger {
+						logger.Info("[grafana] IPBlock exists, patch to trigger reconciling",
+							"ip", ip, "phase", phase)
 
-					existing.Spec.Trigger = true
-					existing.Spec.Reason = fmt.Sprintf("【Grafana告警触发】%s", description)
-					existing.Spec.Duration = duration // 更新持续时间
+						patch := client.MergeFrom(existing.DeepCopy())
+						existing.Spec.Trigger = true
+						existing.Spec.Reason = fmt.Sprintf("【Grafana告警触发】%s", description)
+						existing.Spec.Duration = duration
 
-					if err := g.Client.Patch(context.Background(), &existing, patch); err != nil {
-						logger.Error(err, "[grafana] Patch existing IPBlock failed", "ip", ip)
+						if err := g.Client.Patch(context.Background(), &existing, patch); err != nil {
+							logger.Error(err, "[grafana] Patch existing IPBlock failed", "ip", ip)
+						} else {
+							logger.Info("[grafana] Patched existing IPBlock to trigger re-ban", "ip", ip)
+						}
 					} else {
-						logger.Info("[grafana] Patched existing IPBlock to trigger re-ban", "ip", ip)
+						logger.Info("[grafana] Skip patch, trigger already set",
+							"ip", ip,
+							"phase", phase)
 					}
-				} else {
-					logger.Info("[grafana] Skip patch, already triggered or active", "ip", ip)
+				default:
+					logger.Info("[grafana] Skip patch, unknown Phase",
+						"ip", ip,
+						"phase", phase)
 				}
 				return
 			}
 
-			// CR 不存在，创建新的
+			// CR 不存在：创建新的
 			ipblock := &opsv1.IPBlock{
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      crName,
@@ -163,7 +171,8 @@ func (g *GrafanaTrigger) handleWebhook(w http.ResponseWriter, r *http.Request) {
 				},
 				Spec: opsv1.IPBlockSpec{
 					IP:       ip,
-					Reason:   "【Grafana告警触发】" + description,
+					Trigger:  true,
+					Reason:   fmt.Sprintf("【Grafana告警触发】%s", description),
 					Source:   "grafana",
 					Duration: duration,
 				},
@@ -176,10 +185,8 @@ func (g *GrafanaTrigger) handleWebhook(w http.ResponseWriter, r *http.Request) {
 			}
 
 		}(ip)
-
 	}
 
 	w.WriteHeader(http.StatusOK)
 	_, _ = w.Write([]byte("ok\n"))
-
 }

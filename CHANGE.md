@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2025/12/16
+
+镜像更新至`beatrueman/ipblock-operator:8.2`
+
+- fix: 修正Grafana CR patch逻辑，保证active、skipped、failed阶段的CR不会被再次patch，避免短时重复封禁
+
+
 ## 2025/12/15
 
 镜像更新至`beatrueman/ipblock-operator:8.1`
